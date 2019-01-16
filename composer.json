@@ -1,0 +1,25 @@
+{
+    "name": "lekoala/silverstripe-eid",
+    "description": "belgian eID integration for SilverStripe",
+    "type": "silverstripe-module",
+    "keywords": [
+        "silverstripe",
+        "module",
+        "eID"
+    ],
+    "license": "MIT",
+    "authors": [{
+        "name": "LeKoala",
+        "email": "thomas@lekoala.be"
+    }],
+    "require": {
+        "php": ">=7.1",
+        "silverstripe/framework": "^3.6"
+    },
+    "extra": {
+        "installer-name": "eid"
+    },
+    "support": {
+        "issues": "https://github.com/lekoala/silverstripe-eid/issues"
+    }
+}

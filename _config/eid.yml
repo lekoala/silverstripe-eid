@@ -1,0 +1,13 @@
+---
+Name: eid
+After:
+  - 'framework/*'
+---
+Member:
+  national_number_field: 'NationalNumber'
+MemberLoginForm:
+  extensions:
+    - EidLoginFormExtension
+Director:
+  rules:
+    'eid//$Action/$ID/$Name': 'EidController'
