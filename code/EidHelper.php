@@ -6,6 +6,35 @@ class EidHelper
         'en', 'fr', 'nl'
     ];
 
+    protected static $dataset = [
+        'namePerson/first', 'namePerson/last',
+        'namePerson', 'person/gender', 'contact/postalCode/home',
+        'contact/postalAddress/home', 'contact/city/home', 'eid/nationality',
+        'eid/pob', 'birthDate', 'eid/card-number', 'eid/card-validity/begin',
+        'eid/card-validity/end', 'eid/photo', 'eid/rrn'
+    ];
+
+    public static function getEidAttributes()
+    {
+        return Session::get('Eid.Attributes');
+    }
+
+    public static function setEidAttributes($attrs)
+    {
+        Session::set('Eid.Attributes', $attrs);
+    }
+
+    public static function getReadUserDataLink()
+    {
+        return '/eid/readUserData';
+    }
+
+    public static function doReadUserData()
+    {
+        header('Location: ' . self::getReadUserDataLink());
+        exit();
+    }
+
     public static function getIdentityServer()
     {
         if (defined('EID_IDENTITY_SERVER') && EID_IDENTITY_SERVER) {
@@ -38,5 +67,25 @@ class EidHelper
             return $lang;
         }
         return self::$default_langs;
+    }
+
+    /**
+     * Get the value of dataset
+     *
+     * @return array
+     */
+    public static function getDataset()
+    {
+        return $this->dataset;
+    }
+
+    /**
+     * Set the value of dataset
+     *
+     * @param array $dataset
+     */
+    public static function setDataset($dataset)
+    {
+        $this->dataset = $dataset;
     }
 }
