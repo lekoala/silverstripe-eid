@@ -6,6 +6,8 @@ class EidHelper
         'en', 'fr', 'nl'
     ];
 
+    protected static $default_lang = 'en';
+
     protected static $dataset = [
         'namePerson/first', 'namePerson/last',
         'namePerson', 'person/gender', 'contact/postalCode/home',
@@ -55,7 +57,7 @@ class EidHelper
     }
 
     /**
-     * Get a supported ItsMe lang
+     * Get a supported lang
      *
      * @return string EN, FR, NL or DE
      */
@@ -66,7 +68,7 @@ class EidHelper
         if (in_array($lang, self::$langs)) {
             return $lang;
         }
-        return self::$default_langs;
+        return self::$default_lang;
     }
 
     /**
@@ -76,7 +78,7 @@ class EidHelper
      */
     public static function getDataset()
     {
-        return $this->dataset;
+        return self::$dataset;
     }
 
     /**
@@ -86,6 +88,6 @@ class EidHelper
      */
     public static function setDataset($dataset)
     {
-        $this->dataset = $dataset;
+        self::$dataset = $dataset;
     }
 }
