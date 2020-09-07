@@ -76,7 +76,7 @@ class EidHelper
      */
     public static function getDataset()
     {
-        return $this->dataset;
+        return self::$dataset;
     }
 
     /**
@@ -86,6 +86,6 @@ class EidHelper
      */
     public static function setDataset($dataset)
     {
-        $this->dataset = $dataset;
+        self::$dataset = $dataset;
     }
 }
